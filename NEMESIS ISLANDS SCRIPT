@@ -25,6 +25,120 @@ function SendNotification(Title, Text)
 	})
 end	
 
+----------
+
+
+local Player = game.Players.LocalPlayer
+local PlayerGui = Player:WaitForChild("PlayerGui")
+
+-- Create ScreenGui
+local screenGui = Instance.new("ScreenGui")
+screenGui.Name = "UpdateGui"
+screenGui.Parent = PlayerGui
+
+-- Create Frame
+local frame = Instance.new("Frame")
+frame.Size = UDim2.new(0.5, 0, 0.6, 0)  -- Height for the main frame
+frame.Position = UDim2.new(0.25, 0, 0.2, 0)
+frame.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+frame.BorderSizePixel = 0
+frame.Parent = screenGui
+
+-- Rounded Corners
+local uiCorner = Instance.new("UICorner")
+uiCorner.CornerRadius = UDim.new(0, 10)
+uiCorner.Parent = frame
+
+-- Create Header
+local header = Instance.new("TextLabel")
+header.Size = UDim2.new(1, 0, 0.2, 0)
+header.Text = "Latest Updates"
+header.TextColor3 = Color3.fromRGB(255, 255, 255)
+header.BackgroundTransparency = 1
+header.Font = Enum.Font.SourceSansBold
+header.TextSize = 24
+header.Parent = frame
+
+-- Create Scrolling Frame
+local scrollingFrame = Instance.new("ScrollingFrame")
+scrollingFrame.Size = UDim2.new(1, 0, 0.8, 0)  -- Increased height to 80% of the frame
+scrollingFrame.Position = UDim2.new(0, 0, 0.2, 0)
+scrollingFrame.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+scrollingFrame.BorderSizePixel = 0
+scrollingFrame.Parent = frame
+
+-- Scrolling Frame Properties
+scrollingFrame.ScrollBarThickness = 10
+scrollingFrame.CanvasSize = UDim2.new(0, 0, 0, 0)  -- Adjust dynamically later
+
+-- Create UIListLayout for updates
+local uiListLayout = Instance.new("UIListLayout")
+uiListLayout.Parent = scrollingFrame
+
+-- Create Close Button
+local closeButton = Instance.new("TextButton")
+closeButton.Size = UDim2.new(0.1, 0, 0.1, 0)
+closeButton.Position = UDim2.new(0.9, 0, 0, 0)
+closeButton.Text = "X"
+closeButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+closeButton.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+closeButton.BorderSizePixel = 0
+closeButton.Parent = frame
+
+-- Hover effect for the close button
+closeButton.MouseEnter:Connect(function()
+    closeButton.BackgroundColor3 = Color3.fromRGB(0, 255, 0)  -- Green on hover
+end)
+
+closeButton.MouseLeave:Connect(function()
+    closeButton.BackgroundColor3 = Color3.fromRGB(255, 0, 0)  -- Reset to original red color
+end)
+
+-- Example updates
+local updates = {
+ "THIS IS IN BETA DONT EXPECT EVERYTHING TO WORK.",
+ "ADDED Dragon to auto farm.",
+ "ADDED new beta tool bypasses.",
+ "Placeholder",
+ "Placeholder",
+ "Placeholder",
+ "Placeholder",
+ "Placeholder",
+ "Placeholder",
+ "Placeholder",
+ "Placeholder",
+ "Placeholder",
+ "Placeholder",
+ "Placeholder",
+ "Placeholder",
+}
+
+-- Function to display updates
+local function showUpdates()
+    for _, update in ipairs(updates) do
+        local updateLabel = Instance.new("TextLabel")
+        updateLabel.Size = UDim2.new(1, 0, 0, 50)  -- Each update label height
+        updateLabel.Text = update
+        updateLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+        updateLabel.BackgroundTransparency = 0.5
+        updateLabel.BorderSizePixel = 0
+        updateLabel.Parent = scrollingFrame
+    end
+
+    -- Adjust the CanvasSize to fit the number of updates
+    scrollingFrame.CanvasSize = UDim2.new(0, 0, 0, #updates * 50)  -- Total height based on number of updates
+end
+
+-- Close button functionality
+closeButton.MouseButton1Click:Connect(function()
+    frame.Visible = false
+end)
+
+-- Start showing updates
+showUpdates()
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 -- Create ScreenGui
 local player = game.Players.LocalPlayer

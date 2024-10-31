@@ -8300,7 +8300,7 @@ local Button = Tab:CreateButton({
 		end
 	end)
 
-	local AutoCompleteActionGame = PlayerSelection:AddToggle("Auto Complete Action Game", {Title = "Auto Complete Gam (SOON!)e", Default = false })
+	local AutoCompleteActionGame = PlayerSelection:AddToggle("Auto Complete Action Game", {Title = "Auto Complete Gam (SOON!)", Default = false })
 
 	AutoCompleteActionGame:OnChanged(function(Value)
 		_G.AutoCompleteActionGame = Value

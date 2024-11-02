@@ -132,6 +132,7 @@ end
 -- Close button functionality
 closeButton.MouseButton1Click:Connect(function()
     frame.Visible = false
+	
 end)
 
 -- Start showing updates
@@ -140,25 +141,7 @@ showUpdates()
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
--- Create ScreenGui
-local player = game.Players.LocalPlayer
-local gui = Instance.new("ScreenGui")
-gui.Parent = player:WaitForChild("PlayerGui")
 
--- Create ImageLabel for Loading Decal
-local loadingImage = Instance.new("ImageLabel")
-loadingImage.Size = UDim2.new(0.5, 0.5, 0.5, 0.5) -- Full screen
-loadingImage.Position = UDim2.new(0, 5, 0, 5)
-loadingImage.Image = "rbxassetid://74863080166283" -- Your asset ID
-loadingImage.BackgroundTransparency = 1 -- Make background transparent
-loadingImage.Parent = gui
-
-
--- Wait for a few seconds to simulate loading
-wait(1) -- Change this duration as needed
-
--- Remove the loading screen after loading
-gui:Destroy()
 
 
 

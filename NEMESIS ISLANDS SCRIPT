@@ -99,7 +99,7 @@ local updates = {
  "THIS IS IN BETA DONT EXPECT EVERYTHING TO WORK.",
  "ADDED Dragon to auto farm.",
  "ADDED new beta tool bypasses.",
- "Placeholder",
+ "REMOVED uneeded assets",
  "Placeholder",
  "Placeholder",
  "Placeholder",
@@ -357,16 +357,17 @@ function TweenHello()
 
 	Background.Name = "Background"
 	Background.Parent = Notify
-	Background.BackgroundColor3 = Color3.fromRGB(6, 5, 35)
-	Background.Position = UDim2.new(3, 0, 1, 0)
+	Background.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+	Background.Position = UDim2.new(0, 0, 0, 0)
 	Background.Size = UDim2.new(0, 240, 0, 70)
+	Background.Visible = true
 
 
 	Image.Name = "Image"
 	Image.Parent = Background
 	Image.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
 	Image.BorderSizePixel = 0
-	Image.Position = UDim2.new(0.05, 0, 0, 0)
+	Image.Position = UDim2.new(0, 0, 0, 0)
 	Image.Size = UDim2.new(1, 30, 1, 1)
 	Image.Image = "rbxassetid://131458687351190"
 	Image.ScaleType = Enum.ScaleType.Tile
@@ -10138,6 +10139,14 @@ game.Players.LocalPlayer:Kick("SCRIPT IS BROKE! WE ARE SORRY. Reload the script 
 
 
 	-- end
+
+
+
+
+
+
+
+
 
 
 
